@@ -5,7 +5,7 @@
 #include</usr/include/complex.h>
 
 // Function prototypes go here!
-
+double complex MaxwellGarnett(double complex epsilonM, double volumefraction, double complex epsilonI);
 
 int main() {
 
@@ -92,6 +92,8 @@ for (i=0; i<1778; i++) {
   // Calculate the complex SPP index at the current wavelength for metal 2
   N_SPP2 = csqrt( epsilon_metal2/(epsilon_metal2 + 1) );
 
+double complex N_SPP_Eff = MaxwellGarnett(N_SPP2, sin(angle) , N_SPP1);
+
   // get real part of N_SPP1 and store it to eta
   eta1 = creal(N_SPP1);
 
@@ -103,7 +105,7 @@ for (i=0; i<1778; i++) {
 
   // get imaginary part of N_SPP2 and store it to kappa
   kappa2 = cimag(N_SPP2);
-//>>>>>>> b14423256b13e566b977e03495aaea05f8f21103
+
 
   // get omega from wavelength
   omega = 2*pi*c/(wl*1e-9);
@@ -135,7 +137,7 @@ beta = kappa1*sin(angle);
 
 a = (alpha*alpha)+(beta*beta)+(eta2*eta2)-(kappa2*kappa2);
 
-b = ((kappa2-beta)*(kappa2-beta))+(eta2-alpha)*(eta2-alpha)*((kappa2+beta)*(kappa2+beta)+((eta2+alpha)*(eta2+alpha)));
+b = ((kappa2-beta)*(kappa2-beta)+(eta2-alpha)*(eta2-alpha))*((kappa2+beta)*(kappa2+beta)+((eta2+alpha)*(eta2+alpha)));
 
 N2 =((1./sqrt(2.))*sqrt(a+sqrt(b)));
 
@@ -147,7 +149,8 @@ N2 =((1./sqrt(2.))*sqrt(a+sqrt(b)));
 
 
   // Print wavelength, epsilon_real, epsilon_imaginary
-  fprintf(fpw,"  %f %f %f\n",angle*180./pi, (omega*1e-6/c)* N2, hbar*omega); 
+  fprintf(fpw,"  %f %f %f %f\n",angle*180./pi, (omega*1e-6/c)* N2, (omega*1e-6/c)* creal(N_SPP_Eff), hbar*omega); 
+
 
 //=======
 
@@ -162,3 +165,16 @@ N2 =((1./sqrt(2.))*sqrt(a+sqrt(b)));
 
 }
 // Functions go here!
+double complex MaxwellGarnett(double complex epsilonM, double volumefraction, double complex epsilonI) {
+
+  double complex eps_spp1, eps_spp2, eps_eff, ri_eff;
+  eps_spp2= epsilonM*epsilonM;
+  eps_spp1= epsilonI*epsilonI;
+
+  eps_eff= eps_spp2*(2*volumefraction*(eps_spp1 - eps_spp2) + eps_spp1 + 2*eps_spp2)/(2*eps_spp2 + eps_spp1 + volumefraction*(eps_spp2-eps_spp1));
+  ri_eff = csqrt(eps_eff);
+
+  return ri_eff;
+
+}
+
