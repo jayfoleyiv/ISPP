@@ -1,11 +1,11 @@
 LIB        = -L. 
 INCLUDE    = -I.
 CFLAGS     = -O3
-EXEC       = ISPP.exe
+EXEC       = QF.exe
 CXX        = g++
 
-${EXEC}: ISPP.cpp
-	${CXX} ${CFLAGS} ${INCLUDE} ${LIB} ISPP.cpp -o ${EXEC}
+${EXEC}: QF.cpp
+	${CXX} ${CFLAGS} ${INCLUDE} ${LIB} QF.cpp -o ${EXEC}
 
 clean:
 	rm -f *.o
