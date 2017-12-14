@@ -46,12 +46,30 @@ char filename[1000];
 printf(" WHAT MATERIAL DO YOU WANT TO ANALYZE? \n");
 printf("  ENTER '1' FOR Au \n");
 printf("  ENTER '2' FOR Ag \n");
+printf("  ENTER '3' FOR Fe \n");
+printf("  ENTER '4' FOR Pt \n");
+printf("  ENTER '5' FOR Pd \n");
+
 scanf("%i",&option);
 
 if (option==1) {
   fp = fopen("DIEL/Au_JC.txt","r");
 }
 else if (option==2) {
+  fp = fopen("DIEL/Ag_JC.txt","r");
+}
+else if (option==3) {
+  fp = fopen("DIEL/Fe_Palik.txt","r");
+}
+else if (option==4) {
+  fp = fopen("DIEL/Pt_Palik.txt","r");
+}
+else if (option==5) {
+  fp = fopen("DIEL/Pd_Palik.txt","r");
+}
+else {
+  printf("  YOU DID NOT ENTER A VALID MATERIAL OPTION!\n");
+  printf("  GOING TO USE Ag AS THE DEFAULT MATERIAL!\n");
   fp = fopen("DIEL/Ag_JC.txt","r");
 }
 
@@ -86,7 +104,8 @@ for (i=0; i<1778; i++) {
 
   // Compute Qs here!
 
-  //fprintf(fpw," %12.10e  %12.10e  %12.10f  %12.10f\n",wl2, omega2, Qv, Qs);
+  // MODIFY PRINT STATEMENT TO PRINT OUT Qv AND Qs vs wl and omega
+  //fprintf(fpw," %12.10e  %12.10e  %12.10f  %12.10f\n",wl2, omega2, er2, ei2);
   
   }
 
