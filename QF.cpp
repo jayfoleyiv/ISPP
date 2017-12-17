@@ -31,6 +31,7 @@ double complex epsilon_metal_1;
 double wl2, er2, ei2, eta2, kappa2;
 double omega2, SPP_WL2, SPP_MOM2, SPP_PL2;
 double complex epsilon_metal2;
+double D1; // This is used to identify the derivative for the Qs equation
 double Qs; // Qs is the Quality Factor in Sharma's convention (just epsilon real^2 over epsilon imaginary
 double Qv; // Qv is the Quality Factor in Van Duhn's convention (involves derivative of epsilon real)
 
@@ -80,12 +81,12 @@ for (i=0; i<1778; i++) {
   //  Calculate the finite-difference approximation of the derivative here!
   //  As long as i>0, then er2 is the "forward" epsilon real
   //  and er1 is the "backward" epsilon real - same for omega2 and omega1
-
+   D1= (er2-er1)/ (omega2-omega1);
   //  Now that you have derivative of er with respect to omega, calculate Q
   //  Compute Qv here!
-
+   Qv= (omega2*(D1))/ (2*(ei1*ei2));
   // Compute Qs here!
-
+   Qs= (er2*er2)/ei1;
   //fprintf(fpw," %12.10e  %12.10e  %12.10f  %12.10f\n",wl2, omega2, Qv, Qs);
   
   }
