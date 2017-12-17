@@ -101,12 +101,12 @@ for (i=0; i<1778; i++) {
 
   //  Now that you have derivative of er with respect to omega, calculate Q
   //  Compute Qv here!
-
+  Qv = 3.0;
   // Compute Qs here!
-
+  Qs = 1.2;
   // MODIFY PRINT STATEMENT TO PRINT OUT Qv AND Qs vs wl and omega
   //fprintf(fpw," %12.10e  %12.10e  %12.10f  %12.10f\n",wl2, omega2, er2, ei2);
-  
+  printf(" %12.10f %12.10f\n",Qv, Qs);
   }
 
   // Update these print statements to print out quality factor vs wavelength and/or omega
