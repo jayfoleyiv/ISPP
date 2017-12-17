@@ -28,7 +28,7 @@ double omega, c, pi, hbar, eta1, kappa1;
 double SPP_WL1, SPP_MOM1, SPP_PL1;
 double complex epsilon_metal1, N_SPP1;
 
-double er2, ei2, eta2, kappa2;
+double er2, ei2, eta2, kappa2, kappa3;
 double SPP_WL2, SPP_MOM2, SPP_PL2;
 double complex epsilon_metal2, N_SPP2;
 
