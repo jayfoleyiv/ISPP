@@ -30,7 +30,7 @@ double complex epsilon_metal1, N_SPP1;
 
 double er2, ei2, eta2, kappa2;
 double SPP_WL2, SPP_MOM2, SPP_PL2;
-double complex epsilon_metal2, N_SPP2;
+double complex epsilon_metal2, N_SPP2, N3;
 
 //ISPP variables - only defined for material 2
 double N2, k2, a, b, alpha, beta;
