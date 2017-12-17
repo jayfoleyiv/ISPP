@@ -101,7 +101,7 @@ for (i=0; i<1778; i++) {
 
   //  Now that you have derivative of er with respect to omega, calculate Q
   //  Compute Qv here!
-  Qv = 2.0 * 4.4/omega2;
+
   // Compute Qs here!
 
   // MODIFY PRINT STATEMENT TO PRINT OUT Qv AND Qs vs wl and omega
