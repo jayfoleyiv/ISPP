@@ -32,6 +32,8 @@ double er2, ei2, eta2, kappa2, kappa3;
 double SPP_WL2, SPP_MOM2, SPP_PL2;
 double complex epsilon_metal2, N_SPP2, N3;
 
+printf("  did not change much!\n");
+
 //ISPP variables - only defined for material 2
 double N2, k2, a, b, alpha, beta;
 double angle;
@@ -43,6 +45,7 @@ hbar = 6.5821e-16;
 FILE *fp1, *fp2, *fpw;
 char filename[1000];
 
+printf(" but changed something\n");
 // Open the file DIEL/Ag_JC.txt for reading!
 fp1 = fopen("DIEL/Ag_JC.txt","r");
 fp2 = fopen("DIEL/Au_JC.txt","r");
