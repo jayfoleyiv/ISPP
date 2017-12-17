@@ -106,7 +106,6 @@ for (i=0; i<1778; i++) {
 
   // MODIFY PRINT STATEMENT TO PRINT OUT Qv AND Qs vs wl and omega
   //fprintf(fpw," %12.10e  %12.10e  %12.10f  %12.10f\n",wl2, omega2, er2, ei2);
-  
   }
 
   // Update these print statements to print out quality factor vs wavelength and/or omega
