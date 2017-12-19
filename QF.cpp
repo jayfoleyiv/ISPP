@@ -105,7 +105,8 @@ for (i=0; i<1778; i++) {
    Qv= (omega2*(D1))/ (2*(ei1*ei2));
   // Compute Qs here!
    Qs= (er2*er2)/ei1;
-  //fprintf(fpw," %12.10e  %12.10e  %12.10f  %12.10f\n",wl2, omega2, Qv, Qs);
+  fprintf(fpw," %12.10e  %12.10e  %12.10f  %12.10f\n",wl2, omega2, Qv, Qs);
+
   // MODIFY PRINT STATEMENT TO PRINT OUT Qv AND Qs vs wl and omega
   //fprintf(fpw," %12.10e  %12.10e  %12.10f  %12.10f\n",wl2, omega2, er2, ei2);
   }
